@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Check</title>
+</head>
+<body style="background: linear-gradient(violet,rgb(73, 73, 255),violet); ">
+    <div class="container">
+        <form>
+            <h1 style="text-align: center;">Number Check Page</h1>
+            <div style="margin-top: 200px;" class="number">
+                <label style="font-size: 4ch; padding-right: 40px; padding-left: 400px;">Enter a number: </label>
+                <input type="text" id="n" placeholder="Enter the Number here... " style="font-size: larger; width: 40vh; height: 5vh; background-color: rgb(180, 255, 173);">
+            </div>
+            <div style="margin-top: 20px; display: flex; flex-direction: row;" class="result">
+                <label style="font-size: 4ch; padding-right: 46px; padding-left: 516px; padding-top: 10px;">Result: </label>
+                <textarea id="result" readonly style="resize: none;font-size: 3ch; width: 40vh; height: 5vh; background-color: rgb(180, 255, 173); border-style: solid; border-width: 2.5px; padding-top: 20px;"></textarea>
+                </div>
+
+            <div style="margin-top: 80px; padding-left: 350px;" class="button">
+                <input type="button" class="button" id="prime_check" value="Prime Check" onclick="btn_prime_check()" style="border-radius: 3vh; background-color: rgb(180,255,173); height: 9vh; width: auto; margin-right: 80px;">
+                
+                <input type="button" class="button" id="palindrome_check" value="Palindrome Check" onclick="btn_palindrome_check()" style="border-radius: 3vh; background-color: rgb(180,255,173); height: 9vh; width: auto; margin-right: 80px;">
+                
+                <input type="button" class="button" id="even/odd_check" value="Even/Odd Check" onclick="btn_even_odd_check()" style="border-radius: 3vh; background-color: rgb(180,255,173); height: 9vh; width: auto; margin-right: 80px;">
+                
+                <input type="button" class="button" id="factorial_check" value="Factorial Check" onclick="btn_factorial_check()" style="border-radius: 3vh; background-color: rgb(180,255,173); height: 9vh; width: auto; margin-right: 80px;">
+                
+                <button type="reset" class="button" style="border-radius: 3vh; background-color: rgb(180,255,173); height: 9vh; width: 90px; margin-right: 80px;">Clear</button>
+                </div>
+        </form>
+    </div>
+
+<script>
+    function btn_prime_check()
+    {
+        var x=document.getElementById("n").value;
+        var result = document.getElementById("result");
+        
+        if (x <= 1) {
+            result.innerText = "Please enter a number greater than 1. Since its not considered prime";
+            return;
+        }
+        
+        var isPrime = true;
+        
+        for (let i = 2; i <= Math.sqrt(x); i++) {
+            if (x % i === 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        
+        if (isPrime) {
+            result.innerText = " Number is a Prime.";
+        } else {
+            result.innerText = " Number is Not Prime.";
+        }
+     }
+
+     function btn_palindrome_check()
+    {
+        var x = document.getElementById("n").value;
+        var result = document.getElementById("result");
+        
+        x = x.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+        var rev = x.split('').reverse().join('');
+        
+        if (x == rev) {
+            result.value ="Entered value is Palindrome";
+        } else {
+            result.value ="Entered value is not Palindrome";
+        }
+     }
+
+     function btn_even_odd_check()
+    {
+        var x = document.getElementById("n").value;
+        var result = document.getElementById("result");
+        
+        if (x%2==0) {
+            result.value ="The number is Even";
+        } else {
+            result.value ="The number is Odd";
+        }
+     }
+
+     function btn_factorial_check()
+    {
+        var x = document.getElementById("n").value;
+        var result = document.getElementById("result");
+        var f=1;
+        for(var i=x; i>=1;i--)
+        {
+           f=f*i;
+        }
+
+        result.value ="The Factorial is "+ f;
+     }
+</script>
+</body>
+</html>
