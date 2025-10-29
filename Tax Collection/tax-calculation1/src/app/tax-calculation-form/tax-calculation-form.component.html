@@ -1,0 +1,31 @@
+<div>
+  <h2>Tax Calculation Form</h2>
+  <form (ngSubmit)="calculateTax()">
+    <div>
+      <label for="income">Income:</label>
+      <input
+        type="number"
+        id="income"
+        [(ngModel)]="income"
+        name="income"
+        placeholder="Enter your income"
+        required
+      />
+    </div>
+    <div>
+      <label for="taxRate">Tax Rate (%):</label>
+      <input
+        type="number"
+        id="taxRate"
+        [(ngModel)]="taxRate"
+        name="taxRate"
+        placeholder="Enter tax rate"
+        required
+      />
+    </div>
+    <button type="submit">Calculate Tax</button>
+  </form>
+  <div *ngIf="tax !== null">
+    <h3>Calculated Tax: INR{{ tax.toFixed(2) }}</h3>
+  </div>
+</div>
