@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body style="display: block; margin: auto; display: flex;">
+    <div style="margin-left: 150px;" class="container">
+            <fieldset style="margin-top:100px; margin-bottom: 500px; margin-left: 500px; margin-right: 750px;">
+                <div>
+                    <input id="n" type="text" readonly style="resize: none; text-align: right; font-size: 6ch; color: white; width: 65vh; height: 20vh; background-color: rgb(134, 134, 134); border-style: solid; border-width: 2.9px;border-color: black; border-bottom: 0ch;">
+                    <textarea id="result" readonly style="resize: none; text-align: right; font-size: 8ch; color: white; width: 65vh; height: 20vh; background-color: rgb(134, 134, 134); border-style: solid; border-width: 2.9px;border-color: black; border-top: 0ch;"></textarea>
+                </div>
+
+                <div style="margin-top: 20px; padding-left: auto;" class="button">
+                    <input type="button" class="button" id="7" value="7" onclick="appendValue('7')" style="font-size: 4ch;color: white; border-radius: 3vh; background-color: black; height: 80px; width: 80px; margin-right: 90px;">
+                    <input type="button" class="button" id="8" value="8" onclick="appendValue('8')" style="font-size: 4ch;color: white; border-radius: 3vh; background-color: black; height: 80px; width: 80px; margin-right: 90px;">
+                    <input type="button" class="button" id="9" value="9" onclick="appendValue('9')" style="font-size: 4ch;color: white; border-radius: 3vh; background-color: black; height: 80px; width: 80px; margin-right: 90px;">
+                    <input type="button" class="button" id="add" value="+" onclick="appendValue('+')" style="font-size: 4ch;color: white; border-radius: 3vh; background-color:rgb(134, 134, 134); height: 80px; width: 80px;">
+                </div>
+                <div style="margin-top: 20px; padding-left: auto;" class="button1">
+                    <input type="button" class="button1" id="4" value="4" onclick="appendValue('4')" style="font-size: 4ch;color: white; border-radius: 3vh; background-color: black; height: 80px; width: 80px; margin-right: 90px;">
+                    <input type="button" class="button1" id="5" value="5" onclick="appendValue('5')" style="font-size: 4ch;color: white; border-radius: 3vh; background-color: black; height: 80px; width: 80px; margin-right: 90px;">
+                    <input type="button" class="button1" id="6" value="6" onclick="appendValue('6')" style="font-size: 4ch;color: white; border-radius: 3vh; background-color: black; height: 80px; width: 80px; margin-right: 90px;">
+                    <input type="button" class="button1" id="sub" value="-" onclick="appendValue('-')" style="font-size: 4ch;color: white; border-radius: 3vh; background-color:rgb(134, 134, 134); height: 80px; width: 80px;">
+                </div>
+                <div style="margin-top: 20px; padding-left: auto;" class="button2">
+                    <input type="button" class="button2" id="1" value="1" onclick="appendValue('1')" style="font-size: 4ch;color: white; border-radius: 3vh; background-color: black; height: 80px; width: 80px; margin-right: 90px;">
+                    <input type="button" class="button2" id="2" value="2" onclick="appendValue('2')" style="font-size: 4ch;color: white; border-radius: 3vh; background-color: black; height: 80px; width: 80px; margin-right: 90px;">
+                    <input type="button" class="button2" id="3" value="3" onclick="appendValue('3')" style="font-size: 4ch;color: white; border-radius: 3vh; background-color: black; height: 80px; width: 80px; margin-right: 90px;">
+                    <input type="button" class="button2" id="mul" value="*" onclick="appendValue('*')" style="font-size: 4ch;color: white; border-radius: 3vh; background-color:rgb(134, 134, 134); height: 80px; width: 80px;">
+                </div>
+                <div style="margin-top: 20px; padding-left: auto;" class="button3">
+                    <input type="button" class="button3" id="0" value="0" onclick="appendValue('0')" style="font-size: 4ch;color: white; border-radius: 3vh; background-color: black; height: 80px; width: 80px; margin-right: 90px;">
+                    <input type="button" class="button3" id="clear" value="C" onclick="clearTextArea()" style="font-size: 4ch;color: white; border-radius: 3vh; background-color:rgb(134, 134, 134); height: 80px; width: 80px; margin-right: 90px;">
+                    <input type="button" class="button3" id="equal" value="=" onclick="calculateResult()" style="font-size: 4ch;color: white; border-radius: 3vh; background-color:rgb(134, 134, 134); height: 80px; width: 80px; margin-right: 90px;">
+                    <input type="button" class="button3" id="div" value="/" onclick="appendValue('/')" style="font-size: 4ch;color: white; border-radius: 3vh; background-color:rgb(134, 134, 134); height: 80px; width: 80px;">
+                </div>
+    
+            </fieldset>
+    </div>
+<script>
+    function clearTextArea() {
+        document.getElementById("n").value = "";
+    }
+
+    function appendValue(value) {
+        document.getElementById("n").value+= value;
+    }
+
+    function calculateResult() {
+        var expression = document.getElementById("n").value;
+        var result;
+        try {
+            result = eval(expression);
+        } catch (error) {
+            result = "Error";
+        }
+        document.getElementById("result").value = result;
+    }
+     
+</script>
+</body>
+</html>
